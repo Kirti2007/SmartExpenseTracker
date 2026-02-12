@@ -1,0 +1,216 @@
+﻿*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+/*Main Conatianer*/
+.auth-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+}
+
+/*Left Banner*/
+.auth-banner {
+    width: 50%;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55) ), url('../Images/SignUp-banner.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/*Form Area*/
+/*.auth-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}*/
+.auth-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+
+/*Form Card*/
+/*/.form-card {
+    width: 70%;
+    background: #ffffff;
+    padding: 30px 35px;
+}*/
+
+.form-card {
+    width: 65%;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 6px;
+}
+
+.form-card h2 {
+     text-align: center;
+     margin-bottom: 25px;
+     color: #1a1a1a;
+}
+
+.form-card label {
+     display: block;
+     margin-top: 12px;
+     /*font-size: 24px;*/
+     font-weight: 500;
+     color: #333;
+ }
+
+
+/* Input Box */
+/*.input-box {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}*/
+
+.input-box {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+
+
+/*Input focus*/
+.input-box:focus {
+    border-color: #4a90e2;
+    outline: none;
+}
+
+/*Button*/
+/*.btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #357bd8;
+}*/
+
+.btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 11px;
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn:hover {
+     background-color: #357bd8;
+}
+
+
+.change-password label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.checkbox-row input {
+     margin: 0;
+}
+
+.checkbox-row label,
+.checkbox-row span {
+      display: inline !important;
+      font-size: 14px;
+}
+
+/* Validation messages */
+span {
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Change Password page tweaks */
+.change-password .form-card {
+    width: 55%;
+}
+
+
+
+/*Links*/
+.link{
+    text-align:center;
+    margin-top:15px;
+    font-size:14px;
+}
+
+.link a {
+    color: #4a90e2;
+    text-decoration:none;
+    margin-left:5px;
+
+}
+
+.link a:hover{
+    text-decoration:underline;
+}
+
+/*Validation text*/
+span{
+    font-size:12px;
+}
+
+span {
+    display: block;
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.change-password .form-card {
+    width: 55%;
+}
+
+
+/* For responsive */
+@media (max-width: 768px) {
+    .auth-container {
+        flex-direction: column;
+    }
+
+    .auth-banner {
+        display: none;
+    }
+
+    .auth-form {
+        width: 100%;
+        min-height: 100vh;
+    }
+}

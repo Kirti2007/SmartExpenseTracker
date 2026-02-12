@@ -1,0 +1,138 @@
+﻿body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F6F7FB;
+    color: #2E2E2E;
+}
+.top-navbar {
+    height: 70px;
+    background: #FFC107;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.menu {
+    font-size: 15px;
+}
+
+.menu a {
+     text-decoration: none;
+     color: #2E2E2E;
+     padding: 10px 16px;
+     font-weight: 500;
+}
+
+.menu a:hover {
+     background: rgba(255,255,255,0.5);
+     border-radius: 6px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-primary {
+    background: #FFC107;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #E0A800;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #FFC107;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-outline:hover {
+    background: #FFC107;
+}
+
+.features {
+    padding: 60px 50px;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    background: #FFFFFF;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+}
+
+.how-it-works {
+    padding: 60px 50px;
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.step {
+    background: #FFFFFF;
+    padding: 14px 24px;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-weight: 500;
+}
+
+
+.footer {
+    background: #2E2E2E;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    margin-top: 40px;
+}

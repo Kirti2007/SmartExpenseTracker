@@ -1,0 +1,95 @@
+﻿/* ==============================
+   Notifications Page Styling
+   ============================== */
+
+/* Info / Empty message */
+.info-label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #2E2E2E;
+}
+
+/* Grid container */
+.notification-grid {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+    /* Header */
+    .notification-grid th {
+        background-color: #FFF8E1; /* soft amber */
+        color: #2E2E2E;
+        padding: 12px;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* Rows */
+    .notification-grid td {
+        padding: 12px;
+        border-bottom: 1px solid #E5E7EB;
+        font-size: 14px;
+        color: #334155;
+    }
+
+    /* Hover effect */
+    .notification-grid tr:hover {
+        background-color: #FFFDF5;
+    }
+
+/* Read / Unread status */
+.unread {
+    color: #F44336; /* Expense red */
+    font-weight: 600;
+}
+
+.read {
+    color: #4CAF50; /* Income green */
+    font-weight: 600;
+}
+
+/* Mark as Read button */
+.btn-read {
+    background-color: #FFC107; /* Primary yellow */
+    color: #2E2E2E;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .btn-read:hover {
+        background-color: #E0A800;
+    }
+
+.btn-delete {
+    background-color: #F44336;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+    .btn-delete:hover {
+        background-color: #d32f2f;
+    }
+
+
+/* Responsive (small screens) */
+@media (max-width: 768px) {
+    .notification-grid th,
+    .notification-grid td {
+        font-size: 13px;
+        padding: 10px;
+    }
+}

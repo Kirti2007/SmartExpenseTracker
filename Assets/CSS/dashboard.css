@@ -1,0 +1,178 @@
+﻿body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #F6F7FB;
+    color: #2E2E2E;
+}
+
+/*Top Navigation bar*/
+.top-navbar {
+    height: 60px;
+    background-color: #E0A800;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+
+.site-name {
+    font-weight: 600;
+    color: #2E2E2E;
+}
+
+.username {
+    margin-right: 12px;
+    font-weight: 500;
+    color: #2E2E2E;
+}
+
+.profile-dropdown {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+}
+/*Layout*/
+.container {
+    display: flex;
+}
+/*Sidebar*/
+.sidebar {
+    width: 220px;
+    background-color: #FFFFFF;
+    min-height: calc(100vh - 60px);
+    padding-top: 20px;
+}
+
+.menu-item {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #2E2E2E;
+    font-weight: 500;
+}
+
+.menu-item:hover {
+    background-color: #FFF3CD;
+}
+
+.menu-item.active {
+    background-color: #FFF3CD;
+    color: #FFC107;
+    border-left: 4px solid #FFC107;
+}
+
+/*Main Content*/
+.main-content {
+    flex: 1;
+    padding: 28px;
+}
+/*Page title*/
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2E2E2E;
+    margin-bottom: 22px;
+}
+
+/*Summary cards*/
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.summary-card {
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.summary-card h3 {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.summary-card p {
+     font-size: 22px;
+     font-weight: 600;
+     color: #2E2E2E;
+ }
+
+/* Accent strips */
+.income {
+    border-left: 4px solid #4CAF50;
+}
+
+.expense {
+    border-left: 4px solid #F44336;
+}
+
+.budget {
+    border-left: 4px solid #2196F3;
+}
+
+.savings {
+    border-left: 4px solid #FF9800;
+}
+
+.health {
+    border-left: 4px solid #9C27B0;
+}
+
+
+/*Transaction section*/
+.section {
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.section h3 {
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #2E2E2E;
+}
+
+/*Gridview table*/
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+     background-color: #FFF8E1;
+     color: #2E2E2E;
+     padding: 12px;
+     text-align: left;
+     font-size: 14px;
+     font-weight: 600;
+}
+
+.table td {
+     padding: 12px;
+     border-bottom: 1px solid #E5E7EB;
+     font-size: 14px;
+     color: #334155;
+}
+
+.table tr:hover {
+       background-color: #FFFDF5;
+}
+
+/*Button*/
+.btn-primary {
+    background-color: #FFC107;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #E0A800;
+    }

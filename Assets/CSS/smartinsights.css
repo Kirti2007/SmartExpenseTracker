@@ -1,0 +1,64 @@
+﻿/* Smart Financial Insights Layout */
+
+.insight-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Insight Cards */
+
+.insight-card {
+    background-color: #FFFFFF;
+    padding: 20px 22px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    font-size: 14px;
+    font-weight: 500;
+    color: #2E2E2E;
+    line-height: 1.6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .insight-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    }
+
+    /* Accent Left Borders */
+
+    .insight-card.info {
+        border-left: 4px solid #2196F3;
+    }
+
+    .insight-card.warning {
+        border-left: 4px solid #FF9800;
+    }
+
+    .insight-card.success {
+        border-left: 4px solid #4CAF50;
+    }
+
+    .insight-card.primary {
+        border-left: 4px solid #9C27B0;
+    }
+
+    .insight-card.danger {
+        border-left: 4px solid #F44336;
+    }
+
+    /* Improve readability of insight text */
+
+    .insight-card span,
+    .insight-card label {
+        display: block;
+    }
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+    .insight-container {
+        grid-template-columns: 1fr;
+    }
+}

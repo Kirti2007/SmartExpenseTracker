@@ -1,0 +1,143 @@
+﻿/* Page background */
+body {
+    background-color: #F6F7FB;
+}
+
+/* Page title */
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2E2E2E;
+}
+
+/* Monthly summary */
+.income-summary {
+    background-color: #FFFFFF;
+    padding: 10px 14px;
+    border-left: 4px solid #FFC107;
+    margin-bottom: 22px;
+    font-size: 18px;
+}
+
+
+.income-amount {
+    font-weight: 600;
+    color: #2E2E2E;
+    margin-left: 6px;
+}
+
+.income-form {
+    flex: 0 0 50%;
+}
+
+
+/* Layout */
+.income-layout {
+    display: flex;
+    gap: 52px;
+    align-items: flex-start;
+}
+
+/* Cards */
+.income-form,
+.income-history {
+    width:50%;
+    background-color: #FFFFFF;
+    padding: 18px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    display: block;
+    color: #2E2E2E;
+}
+
+/* Labels */
+.income-form label,
+.income-form span {
+    font-size: 15px;
+    color: #2E2E2E;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Inputs */
+.input-box {
+    width: 100%;
+    padding: 8px 9px;
+    font-size: 13px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+}
+
+    .input-box:focus {
+        outline: none;
+        border-color: #FFC107;
+    }
+
+/* Calendar */
+.calendar {
+    margin-top: 6px;
+    margin-bottom: 14px;
+    border: 1px solid #d1d5db;
+}
+
+.calendar a {
+    font-size: 12px;
+     text-decoration: none;
+    color: #2E2E2E;
+}
+
+.calendar a:hover {
+     background-color: #FFF3CD;
+}
+
+
+
+/* Primary button */
+.btn-primary {
+    margin-top: 10px;
+    padding: 9px 18px;
+    background-color: #FFC107;
+    color: #2E2E2E;
+    border: none;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+    .btn-primary:hover {
+        background-color: #FFB300;
+    }
+
+/* Table */
+.income-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+    .income-table th {
+        background-color: #FFF3CD;
+        color: #2E2E2E;
+        font-weight: 600;
+        padding: 9px;
+        border-bottom: 1px solid #d1d5db;
+    }
+
+    .income-table td {
+        padding: 9px;
+        border-bottom: 1px solid #e5e7eb;
+        color: #2E2E2E;
+    }
+
+    .income-table tr:hover td {
+        background-color: #FFFBEA;
+    }

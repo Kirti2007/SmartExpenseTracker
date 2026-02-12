@@ -1,0 +1,65 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DashboardMaster.master.cs" Inherits="SmartExpenseTracker.MasterPages.DashboardMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Smart Expense Tracker</title>
+   <!-- <link href="<%= ResolveUrl("~/Assets/CSS/dashboard.css") %>" rel="stylesheet" />-->
+    <link href="~/Assets/CSS/dashboard.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!--Top navbar-->
+        <div class="top-navbar">
+            <div class="nav-left">
+                <img src="/Assets/Images/logo.png" class="logo"  />
+                <span class="site-name">Smart Expense Tracker & Budget Monitoring</span>
+            </div>
+
+            <div class="nav-right">
+
+            <!-- Username from DB -->
+            <asp:Label ID="lblUserName" runat="server" CssClass="username"></asp:Label>
+
+            <!-- Profile dropdown -->
+            <asp:DropDownList ID="ddlProfileMenu"
+                runat="server"
+                CssClass="profile-dropdown"
+                AutoPostBack="true"
+                OnSelectedIndexChanged="ddlProfileMenu_SelectedIndexChanged">
+
+                <asp:ListItem Text="My Account" Value="" Selected="True" ></asp:ListItem>
+                <asp:ListItem Text="My Profile" Value="Profile" ></asp:ListItem>
+                <asp:ListItem Text="Change Password" Value="ChangePassword" ></asp:ListItem>
+                <asp:ListItem Text="Notifications" Value="MyNotification"></asp:ListItem>
+                <asp:ListItem Text="Logout" Value="Logout" ></asp:ListItem>
+
+            </asp:DropDownList>
+
+        </div>
+    </div>
+
+        <!--Sidebar-->
+        <div class="container">
+            <div class="sidebar">
+                <a href="Dashboard.aspx" class="menu-item active">Dashboard</a>
+                <a href="Budgets.aspx" class="menu-item">Budget</a>
+                <a href="Expense.aspx" class="menu-item">Expenses</a>
+                <a href="Income.aspx" class="menu-item">Income</a>
+                <a href="Report.aspx" class="menu-item">Reports</a>
+                <a href="SmartInsights.aspx" class="menu-item">Smart Insights</a>
+            </div>
+
+            <!--Main Content-->
+            <div class="main-content">
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+             </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,179 @@
+﻿body {
+    background-color: #F6F7FB;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #2E2E2E;
+}
+
+.page-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/*Expense summary */
+.expense-summary {
+    background: #FFFFFF;
+    padding: 15px 20px;
+    border-left: 5px solid #F44336;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+     font-weight: 600;
+}
+
+#lblTotalExpense {
+    font-weight: 600;
+    color: #F44336;
+    margin-left: 5px;
+}
+
+/*Main Layout*/
+.expense-container {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 20px;
+}
+
+/*Cards */
+.card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: block;
+}
+
+/*Form Elements*/
+.input-box {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+    .input-box:focus {
+        outline: none;
+        border-color: #FFC107;
+        box-shadow: 0 0 0 2px rgba(255,193,7,0.2);
+    }
+
+label,
+asp\:Label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/*Calendar  */
+.calendar {
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+    .calendar a,
+    .calendar a:visited,
+    .calendar a:hover,
+    .calendar a:focus {
+        text-decoration: none !important;
+        color: #2E2E2E;
+        display: inline-block;
+        width: 100%;
+    }
+
+.calendar a:hover {
+     background-color: #FFF3CD;
+     border-radius: 4px;
+}
+
+.calendar .selected {
+    background-color: #FFC107 !important;
+    color: #2E2E2E !important;
+    font-weight: bold;
+    border-radius: 4px;
+ }
+
+/* Buttons */
+.btn-expense,
+asp\:Button {
+    background-color: #FFC107;
+    border: none;
+    color: #2E2E2E;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .btn-expense:hover {
+        background-color: #e0aa06;
+    }
+
+
+
+.error {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #F44336;
+}
+
+/*Filter */
+.filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/*Expense Table*/
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.expense-table th {
+    background-color: #FFF3CD;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-table td {
+     padding: 10px;
+     border-bottom: 1px solid #eee;
+ }
+
+.expense-table tr:hover {
+     background-color: #F6F7FB;
+ }
+
+/*Delete */
+.expense-table a {
+    color: #F44336;
+    font-weight: bold;
+    text-decoration: none;
+ }
+
+.expense-table a:hover {
+     text-decoration: underline;
+}
+
+/* ===============================
+   Responsive
+================================ */
+@media (max-width: 900px) {
+    .expense-container {
+        grid-template-columns: 1fr;
+    }
+}
