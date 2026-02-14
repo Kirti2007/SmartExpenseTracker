@@ -25,7 +25,7 @@
            <h3>Total Savings</h3>
            <p><asp:Label ID="lblSavings" runat="server"  Text="₹ 0"></asp:Label></p>
        </div>
-        <!-- Financial Health Card -->
+        <!-- Financial Health score Card -->
         <div class="summary-card health" id="healthCard" runat="server">
             <h3>Financial Health</h3>
             <p>

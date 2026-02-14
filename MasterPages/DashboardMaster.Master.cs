@@ -13,7 +13,7 @@ namespace SmartExpenseTracker.MasterPages
         {
             string currentPage = System.IO.Path.GetFileName(Request.Path).ToLower();
             // Pages that should open without login
-            if (Session["UserId"] == null &&currentPage != "~/Pages/Home.aspx" &&currentPage != "~/Account/Login.aspx" &&currentPage != "~/Account/Signup.aspx")
+            if (Session["UserId"] == null &&currentPage != "Home.aspx" &&currentPage != "Login.aspx" &&currentPage != "Signup.aspx")
             {
                 Response.Redirect("~/Account/Login.aspx");
             }

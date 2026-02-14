@@ -16,6 +16,8 @@
 }
 
 .site-name {
+    position: relative;
+    top: -18px;
     font-weight: 600;
     color: #2E2E2E;
 }

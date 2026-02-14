@@ -100,7 +100,7 @@ namespace SmartExpenseTracker.Pages
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                AddNotification(UserId,"Expense added: ₹" + txtAmount.Text + " for " + ddlCategory.SelectedItem.Text);
+                AddNotification(UserId,"Expense added: Rs." + txtAmount.Text + " for " + ddlCategory.SelectedItem.Text);
                 CheckBudgetExceeded();
 
             }
@@ -271,7 +271,7 @@ namespace SmartExpenseTracker.Pages
             {
                 AddNotification(
                     UserId,
-                    " Expense exceeded monthly budget by ₹" + (totalExpense - budgetAmount)
+                    " Expense exceeded monthly budget by Rs." + (totalExpense - budgetAmount)
                 );
             }
         }

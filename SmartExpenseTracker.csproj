@@ -96,16 +96,19 @@
     <Content Include="Assets\CSS\dashboard.css" />
     <Content Include="Assets\CSS\dashboardMaster.css" />
     <Content Include="Assets\CSS\expense.css" />
+    <Content Include="Assets\CSS\goal.css" />
     <Content Include="Assets\CSS\home.css" />
     <Content Include="Assets\CSS\income.css" />
     <Content Include="Assets\CSS\notifications.css" />
     <Content Include="Assets\CSS\profile.css" />
     <Content Include="Assets\CSS\report.css" />
     <Content Include="Assets\CSS\smartinsights.css" />
+    <Content Include="Assets\Images\mainLogo.png" />
     <Content Include="Assets\Images\SignUp-banner.jpg" />
     <Content Include="Pages\Budgets.aspx" />
     <Content Include="Pages\Dashboard.aspx" />
     <Content Include="Pages\Expense.aspx" />
+    <Content Include="Pages\GoalTracker.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Income.aspx" />
     <Content Include="Pages\Notification.aspx" />
@@ -177,6 +180,13 @@
     </Compile>
     <Compile Include="Pages\Expense.aspx.designer.cs">
       <DependentUpon>Expense.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GoalTracker.aspx.cs">
+      <DependentUpon>GoalTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\GoalTracker.aspx.designer.cs">
+      <DependentUpon>GoalTracker.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

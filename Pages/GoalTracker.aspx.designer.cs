@@ -7,128 +7,128 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartExpenseTracker.MasterPages
+namespace SmartExpenseTracker.Pages
 {
 
 
-    public partial class DashboardMaster
+    public partial class GoalTracker
     {
 
         /// <summary>
-        /// head control.
+        /// lblPageTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.WebControls.Label lblPageTitle;
 
         /// <summary>
-        /// form1 control.
+        /// pnlAddGoal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Panel pnlAddGoal;
 
         /// <summary>
-        /// imgLogo control.
+        /// lblTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLogo;
+        protected global::System.Web.UI.WebControls.Label lblTitle;
 
         /// <summary>
-        /// lblUserName control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserName;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ddlProfileMenu control.
+        /// txtGoalName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProfileMenu;
+        protected global::System.Web.UI.WebControls.TextBox txtGoalName;
 
         /// <summary>
-        /// hlDashboard control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlDashboard;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// hlBudget control.
+        /// txtTargetAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlBudget;
+        protected global::System.Web.UI.WebControls.TextBox txtTargetAmount;
 
         /// <summary>
-        /// hlExpense control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlExpense;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// hlIncome control.
+        /// txtTargetDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlIncome;
+        protected global::System.Web.UI.WebControls.TextBox txtTargetDate;
 
         /// <summary>
-        /// hlReport control.
+        /// calTargetDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlReport;
+        protected global::System.Web.UI.WebControls.Calendar calTargetDate;
 
         /// <summary>
-        /// hlInsights control.
+        /// btnSaveGoal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hlInsights;
+        protected global::System.Web.UI.WebControls.Button btnSaveGoal;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
 
         /// <summary>
-        /// ContentPlaceHolder1 control.
+        /// gvGoals control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.GridView gvGoals;
     }
 }

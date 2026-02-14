@@ -62,17 +62,14 @@ namespace SmartExpenseTracker.Pages
                 if (percent > 30)
                 {
                     lblHealthStatus.Text = "Excellent";
-                    healthCard.Attributes["class"] = "summary-card health";
                 }
                 else if (percent >= 10)
                 {
                     lblHealthStatus.Text = "Good";
-                    healthCard.Attributes["class"] = "summary-card health";
                 }
                 else
                 {
                     lblHealthStatus.Text = "Poor";
-                    healthCard.Attributes["class"] = "summary-card health";
                 }
             }
         }

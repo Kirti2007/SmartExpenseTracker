@@ -72,22 +72,22 @@ asp\:Label {
     display: block;
 }
 
-/*Calendar  */
+
 .calendar {
     margin: 10px 0;
     border: 1px solid #ddd;
     padding: 5px;
 }
 
-    .calendar a,
-    .calendar a:visited,
-    .calendar a:hover,
-    .calendar a:focus {
-        text-decoration: none !important;
-        color: #2E2E2E;
-        display: inline-block;
-        width: 100%;
-    }
+.calendar a,
+.calendar a:visited,
+.calendar a:hover,
+.calendar a:focus {
+     text-decoration: none !important;
+     color: #2E2E2E;
+     display: inline-block;
+     width: 100%;
+}
 
 .calendar a:hover {
      background-color: #FFF3CD;

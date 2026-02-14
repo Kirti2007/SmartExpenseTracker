@@ -14,7 +14,7 @@
             <h2>Create Account</h2>
 
             <!--Full Name-->
-            <asp:Label ID="lblFullName" runat="server" Text="Full Name" Font-Size="Medium"></asp:Label>
+            <asp:Label ID="lblFullName" runat="server" Text="Name" Font-Size="Medium"></asp:Label>
             <asp:TextBox ID="txtName" runat="server" CssClass="input-box"></asp:TextBox>
             <br />
             <asp:RequiredFieldValidator ID="rfvName" runat="server" ControlToValidate="txtName" ErrorMessage="Full Name is required" ForeColor="Red" Display="Dynamic" Font-Size="Small"></asp:RequiredFieldValidator>

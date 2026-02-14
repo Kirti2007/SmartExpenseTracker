@@ -5,9 +5,7 @@
 <html>
 <head runat="server">
     <title>Smart Expense Tracker</title>
-   <!-- <link href="<%= ResolveUrl("~/Assets/CSS/dashboard.css") %>" rel="stylesheet" />-->
     <link href="~/Assets/CSS/dashboard.css" rel="stylesheet" />
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -16,15 +14,12 @@
         <!--Top navbar-->
         <div class="top-navbar">
             <div class="nav-left">
-                <img src="/Assets/Images/logo.png" class="logo"  />
+                <asp:Image ID="imgLogo" runat="server" Height="50px" ImageUrl="~/Assets/Images/mainLogo.png" />
                 <span class="site-name">Smart Expense Tracker & Budget Monitoring</span>
             </div>
-
             <div class="nav-right">
-
             <!-- Username from DB -->
             <asp:Label ID="lblUserName" runat="server" CssClass="username"></asp:Label>
-
             <!-- Profile dropdown -->
             <asp:DropDownList ID="ddlProfileMenu"
                 runat="server"
@@ -39,21 +34,21 @@
                 <asp:ListItem Text="Logout" Value="Logout" ></asp:ListItem>
 
             </asp:DropDownList>
-
         </div>
     </div>
-
         <!--Sidebar-->
         <div class="container">
             <div class="sidebar">
-                <a href="Dashboard.aspx" class="menu-item active">Dashboard</a>
-                <a href="Budgets.aspx" class="menu-item">Budget</a>
-                <a href="Expense.aspx" class="menu-item">Expenses</a>
-                <a href="Income.aspx" class="menu-item">Income</a>
-                <a href="Report.aspx" class="menu-item">Reports</a>
-                <a href="SmartInsights.aspx" class="menu-item">Smart Insights</a>
-            </div>
+                <asp:HyperLink ID="hlDashboard" runat="server" NavigateUrl="~/Pages/Dashboard.aspx" CssClass="menu-item">Dashboard</asp:HyperLink>
+                <asp:HyperLink ID="hlBudget" runat="server" NavigateUrl="~/Pages/Budgets.aspx" CssClass="menu-item">Budget</asp:HyperLink>
+                <asp:HyperLink ID="hlExpense" runat="server" NavigateUrl="~/Pages/Expense.aspx" CssClass="menu-item">Expenses</asp:HyperLink>
+                <asp:HyperLink ID="hlIncome" runat="server" NavigateUrl="~/Pages/Income.aspx" CssClass="menu-item">Income</asp:HyperLink>
+                <asp:HyperLink ID="hlReport" runat="server" NavigateUrl="~/Pages/Report.aspx" CssClass="menu-item">Reports</asp:HyperLink>
+                <asp:HyperLink ID="hlInsights" runat="server" NavigateUrl="~/Pages/SmartInsights.aspx" CssClass="menu-item">Smart Insights</asp:HyperLink>
+               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/GoalTracker.aspx" CssClass="menu-item">Goal Tracker</asp:HyperLink>
 
+
+            </div>
             <!--Main Content-->
             <div class="main-content">
              <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

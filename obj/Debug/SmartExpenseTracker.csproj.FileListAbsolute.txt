@@ -56,4 +56,3 @@ C:\Users\Kirti\Desktop\Smart Expense Tracker & Budget Monitoring System\SmartExp
 C:\Users\Kirti\Desktop\Smart Expense Tracker & Budget Monitoring System\SmartExpenseTracker\SmartExpenseTracker\obj\Debug\SmartExpenseTracker.csproj.CopyComplete
 C:\Users\Kirti\Desktop\Smart Expense Tracker & Budget Monitoring System\SmartExpenseTracker\SmartExpenseTracker\obj\Debug\SmartExpenseTracker.dll
 C:\Users\Kirti\Desktop\Smart Expense Tracker & Budget Monitoring System\SmartExpenseTracker\SmartExpenseTracker\obj\Debug\SmartExpenseTracker.pdb
-C:\Users\Kirti\Desktop\Smart Expense Tracker & Budget Monitoring System\SmartExpenseTracker\SmartExpenseTracker\obj\Debug\SmartExpenseTracker.csproj.AssemblyReference.cache

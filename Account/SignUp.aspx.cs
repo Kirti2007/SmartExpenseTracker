@@ -47,9 +47,8 @@ namespace SmartExpenseTracker.Account
                     cmd.Parameters.AddWithValue("@PasswordHash", txtPassword.Text);
                     cmd.Parameters.AddWithValue("@Role", "User");
                     cmd.ExecuteNonQuery();
-                    Response.Redirect("Login.aspx", false);
+                    Response.Redirect("~/Account/Login.aspx", false);
                     Context.ApplicationInstance.CompleteRequest();
-
                 }
             }
         }
