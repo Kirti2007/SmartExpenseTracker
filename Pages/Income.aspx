@@ -34,7 +34,7 @@
             <!--Amount-->
             <asp:Label ID="lblAmount" runat="server" Text="Amount(Rs.)"></asp:Label>
             <asp:TextBox ID="txtAmount" runat="server" CssClass="input-box"></asp:TextBox>
-            <br /><br />
+            <asp:RequiredFieldValidator ID="rfvIncomeAmount" runat="server" ControlToValidate="txtAmount" ErrorMessage="Amount is required" CssClass="error" ForeColor="Red"></asp:RequiredFieldValidator>
 
             <!--Short Description-->
             <asp:Label ID="lblDescription" runat="server" Text="Description (Optional)"></asp:Label>

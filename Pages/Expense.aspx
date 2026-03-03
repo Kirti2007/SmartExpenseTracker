@@ -25,6 +25,8 @@
             <!--Amount-->
             <asp:Label ID="lblAmount" runat="server" Text="Amount (₹)"></asp:Label><br /><br />
             <asp:TextBox ID="txtAmount" runat="server" CssClass="input-box"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvAmount" runat="server" ControlToValidate="txtAmount" ErrorMessage="Amount is required" CssClass="error" ForeColor="Red"></asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="rvAmount" runat="server" ControlToValidate="txtAmount" MinimumValue="1" MaximumValue="100000000" Type="Double" ErrorMessage="Enter valid amount greater than 0" CssClass="error" ForeColor="Red"></asp:RangeValidator>
 
 
             <!--Description-->
@@ -60,10 +62,10 @@
                     <asp:ListItem Text="December" Value="12" ></asp:ListItem>
                 </asp:DropDownList>
                 <asp:DropDownList ID="ddlYear" runat="server" CssClass="input-box"></asp:DropDownList>
-                <asp:Button ID="btnFilter" runat="server" Text="Filter" OnClick="btnFilter_Click" />
+                <asp:Button ID="btnFilter" runat="server" Text="Filter" OnClick="btnFilter_Click" CausesValidation="false" />
             </div>
             <!--Table-->
-            <asp:GridView ID="gvExpenses" runat="server" AutoGenerateColumns="false" CssClass="expense-table" EmptyDataText="No income records found" DataKeyNames="ExpenseId" OnRowDeleting="gvExpenses_RowDeleting">
+            <asp:GridView ID="gvExpenses" runat="server" AutoGenerateColumns="false" CssClass="expense-table" EmptyDataText="No expense records found" DataKeyNames="ExpenseId" OnRowDeleting="gvExpenses_RowDeleting">
                 <Columns>
                     <asp:BoundField DataField="Category" HeaderText="Category" />
                     <asp:BoundField DataField="Amount" HeaderText="Amount (₹)" />
@@ -71,6 +73,8 @@
                     <asp:CommandField ShowDeleteButton="true" />
                 </Columns>
             </asp:GridView>
+            <br />
+            <br />
         </div>
     </div>
 </asp:Content>

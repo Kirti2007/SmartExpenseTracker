@@ -39,13 +39,8 @@ namespace SmartExpenseTracker.Pages
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(
-                    @"SELECT CategoryId, CategoryName
-                      FROM Categories
-                      WHERE UserId = @UserId OR UserId IS NULL", con);
-
+                SqlCommand cmd = new SqlCommand(@"SELECT CategoryId, CategoryName FROM Categories WHERE UserId = @UserId OR UserId IS NULL", con);
                 cmd.Parameters.AddWithValue("@UserId", UserId);
-
                 con.Open();
                 ddlCategory.DataSource = cmd.ExecuteReader();
                 ddlCategory.DataTextField = "CategoryName";
@@ -53,8 +48,7 @@ namespace SmartExpenseTracker.Pages
                 ddlCategory.DataBind();
             }
 
-            ddlCategory.Items.Insert(0,
-                new System.Web.UI.WebControls.ListItem("Select Category", ""));
+            ddlCategory.Items.Insert(0,new System.Web.UI.WebControls.ListItem("Select Category", ""));
         }
         protected void ddlCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -67,12 +61,14 @@ namespace SmartExpenseTracker.Pages
         void LoadMonthYear()
         {
             ddlYear.Items.Clear();
-
-            for (int y = DateTime.Now.Year - 5; y <= DateTime.Now.Year + 1; y++)
-                ddlYear.Items.Add(y.ToString());
-
-            ddlMonth.SelectedValue = DateTime.Now.Month.ToString();
+            int startYear = 2026;
+            int endYear = DateTime.Now.Year + 10;
+            for (int year = startYear; year <= endYear; year++)
+            {
+                ddlYear.Items.Add(year.ToString());
+            }
             ddlYear.SelectedValue = DateTime.Now.Year.ToString();
+            ddlMonth.SelectedValue = DateTime.Now.Month.ToString(); 
         }
 
 
@@ -86,11 +82,7 @@ namespace SmartExpenseTracker.Pages
 
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(
-                    @"INSERT INTO Expense
-                      (UserId, CategoryId, Amount, ExpenseDate, Description)
-                      VALUES
-                      (@UserId, @CategoryId, @Amount, @Date, @Desc)", con);
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO Expense (UserId, CategoryId, Amount, ExpenseDate, Description) VALUES (@UserId, @CategoryId, @Amount, @Date, @Desc)", con);
 
                 cmd.Parameters.AddWithValue("@UserId", UserId);
                 cmd.Parameters.AddWithValue("@CategoryId", ddlCategory.SelectedValue);
@@ -100,7 +92,7 @@ namespace SmartExpenseTracker.Pages
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-                AddNotification(UserId,"Expense added: Rs." + txtAmount.Text + " for " + ddlCategory.SelectedItem.Text);
+             
                 CheckBudgetExceeded();
 
             }
@@ -109,26 +101,6 @@ namespace SmartExpenseTracker.Pages
             txtOtherCategory.Text = "";
             LoadExpenses();
             LoadTotalExpense();
-
-
-        }
-
-        int InsertAndGetCategoryId(string categoryName)
-        {
-            using (SqlConnection con = new SqlConnection(cs))
-            {
-                SqlCommand cmd = new SqlCommand(@"
-                    IF NOT EXISTS (SELECT 1 FROM Categories WHERE CategoryName = @Name)
-                        INSERT INTO Categories (CategoryName) VALUES (@Name);
-
-                    SELECT CategoryId FROM Categories WHERE CategoryName = @Name;
-                ", con);
-
-                cmd.Parameters.AddWithValue("@Name", categoryName);
-
-                con.Open();
-                return Convert.ToInt32(cmd.ExecuteScalar());
-            }
         }
 
         void LoadExpenses()
@@ -163,20 +135,13 @@ namespace SmartExpenseTracker.Pages
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(
-                    @"SELECT ISNULL(SUM(Amount),0)
-                      FROM Expense
-                      WHERE UserId = @UserId
-                        AND MONTH(ExpenseDate) = MONTH(GETDATE())
-                        AND YEAR(ExpenseDate) = YEAR(GETDATE())", con);
+                SqlCommand cmd = new SqlCommand(@"SELECT ISNULL(SUM(Amount),0) FROM Expense WHERE UserId = @UserId AND MONTH(ExpenseDate) = MONTH(GETDATE()) AND YEAR(ExpenseDate) = YEAR(GETDATE())", con);
 
                 cmd.Parameters.AddWithValue("@UserId", UserId);
 
                 con.Open();
                 lblTotalExpense.Text = "₹ " + cmd.ExecuteScalar().ToString();
             }
-
-
         }
         protected void calExpenseDate_DayRender(object sender, DayRenderEventArgs e)
         {
@@ -194,15 +159,13 @@ namespace SmartExpenseTracker.Pages
             LoadExpenses();
         }
 
-        protected void gvExpenses_RowDeleting(object sender,
-          System.Web.UI.WebControls.GridViewDeleteEventArgs e)
+        protected void gvExpenses_RowDeleting(object sender,System.Web.UI.WebControls.GridViewDeleteEventArgs e)
         {
             int expenseId = Convert.ToInt32(gvExpenses.DataKeys[e.RowIndex].Value);
 
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(
-                    "DELETE FROM Expense WHERE ExpenseId = @Id AND UserId = @UserId", con);
+                SqlCommand cmd = new SqlCommand("DELETE FROM Expense WHERE ExpenseId = @Id AND UserId = @UserId", con);
 
                 cmd.Parameters.AddWithValue("@Id", expenseId);
                 cmd.Parameters.AddWithValue("@UserId", UserId);
@@ -218,9 +181,7 @@ namespace SmartExpenseTracker.Pages
         {
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Notifications (UserId, Message, CreatedAt, IsRead) " +
-                    "VALUES (@UserId, @Message, GETDATE(), 0)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Notifications (UserId, Message, CreatedAt, IsRead) " + "VALUES (@UserId, @Message, GETDATE(), 0)", con);
 
                 cmd.Parameters.AddWithValue("@UserId", userId);
                 cmd.Parameters.AddWithValue("@Message", message);
@@ -243,9 +204,7 @@ namespace SmartExpenseTracker.Pages
                 con.Open();
 
                 // Total Expense
-                SqlCommand expCmd = new SqlCommand(
-                    @"SELECT ISNULL(SUM(Amount),0) FROM Expense 
-              WHERE UserId=@UserId AND MONTH(ExpenseDate)=@Month AND YEAR(ExpenseDate)=@Year", con);
+                SqlCommand expCmd = new SqlCommand(@"SELECT ISNULL(SUM(Amount),0) FROM Expense WHERE UserId=@UserId AND MONTH(ExpenseDate)=@Month AND YEAR(ExpenseDate)=@Year", con);
 
                 expCmd.Parameters.AddWithValue("@UserId", UserId);
                 expCmd.Parameters.AddWithValue("@Month", month);
@@ -254,9 +213,7 @@ namespace SmartExpenseTracker.Pages
                 totalExpense = Convert.ToDecimal(expCmd.ExecuteScalar());
 
                 // Budget
-                SqlCommand budCmd = new SqlCommand(
-                    @"SELECT ISNULL(Amount,0) FROM Budgets 
-              WHERE UserId=@UserId AND Month=@Month AND Year=@Year", con);
+                SqlCommand budCmd = new SqlCommand(@"SELECT ISNULL(Amount,0) FROM Budgets WHERE UserId=@UserId AND Month=@Month AND Year=@Year", con);
 
                 budCmd.Parameters.AddWithValue("@UserId", UserId);
                 budCmd.Parameters.AddWithValue("@Month", month);
@@ -266,13 +223,9 @@ namespace SmartExpenseTracker.Pages
                 if (result != null)
                     budgetAmount = Convert.ToDecimal(result);
             }
-
             if (budgetAmount > 0 && totalExpense > budgetAmount)
             {
-                AddNotification(
-                    UserId,
-                    " Expense exceeded monthly budget by Rs." + (totalExpense - budgetAmount)
-                );
+                AddNotification( UserId," Expense exceeded monthly budget by Rs." + (totalExpense - budgetAmount));
             }
         }
     }

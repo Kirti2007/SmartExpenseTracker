@@ -96,6 +96,24 @@ namespace SmartExpenseTracker.Pages
         protected global::System.Web.UI.WebControls.TextBox txtBudgetAmount;
 
         /// <summary>
+        /// rfvAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvAmount;
+
+        /// <summary>
+        /// revAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revAmount;
+
+        /// <summary>
         /// btnSaveBudget control.
         /// </summary>
         /// <remarks>

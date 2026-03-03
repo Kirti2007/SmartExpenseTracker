@@ -45,7 +45,6 @@
                 <asp:HyperLink ID="hlIncome" runat="server" NavigateUrl="~/Pages/Income.aspx" CssClass="menu-item">Income</asp:HyperLink>
                 <asp:HyperLink ID="hlReport" runat="server" NavigateUrl="~/Pages/Report.aspx" CssClass="menu-item">Reports</asp:HyperLink>
                 <asp:HyperLink ID="hlInsights" runat="server" NavigateUrl="~/Pages/SmartInsights.aspx" CssClass="menu-item">Smart Insights</asp:HyperLink>
-               <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Pages/GoalTracker.aspx" CssClass="menu-item">Goal Tracker</asp:HyperLink>
 
 
             </div>

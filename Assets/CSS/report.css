@@ -1,6 +1,4 @@
-﻿/* Report page layout */
-
-.page-heading {
+﻿.page-heading {
     margin-bottom: 24px;
 }
 
@@ -130,7 +128,6 @@
     font-weight: 600;
 }
 
-/* Status colors (you set in backend) */
 .budget-ok {
     color: #4CAF50;
 }

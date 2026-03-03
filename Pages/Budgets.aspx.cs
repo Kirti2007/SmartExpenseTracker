@@ -32,13 +32,15 @@ namespace SmartExpenseTracker.Pages
         private void LoadYears()
         {
             ddlYear.Items.Clear();
-            int startYear = 2000;
-            int endYear = DateTime.Now.Year + 10;
-            for(int year=startYear; year <= endYear; year++)
+
+            int startYear = 2026;
+            int endYear = 2026 + 10; 
+
+            for (int year = startYear; year <= endYear; year++)
             {
                 ddlYear.Items.Add(year.ToString());
             }
-            ddlYear.SelectedValue = DateTime.Now.Year.ToString();//Automatically selects current year by default
+            ddlYear.SelectedValue = DateTime.Now.Year.ToString();
         }
         //This will automatically set current month
         private void SetCurrentMonthYear()
@@ -64,9 +66,7 @@ namespace SmartExpenseTracker.Pages
                 if (count > 0)
                 {
                     //update
-                    string updateQuery = @"UPDATE Budgets 
-                                           SET Amount=@Amount 
-                                           WHERE UserId=@UserId AND Month=@Month AND Year=@Year";
+                    string updateQuery = @"UPDATE Budgets SET Amount=@Amount WHERE UserId=@UserId AND Month=@Month AND Year=@Year";
 
                     SqlCommand updateCmd = new SqlCommand(updateQuery, con);
                     updateCmd.Parameters.AddWithValue("@Amount", amount);
@@ -74,13 +74,12 @@ namespace SmartExpenseTracker.Pages
                     updateCmd.Parameters.AddWithValue("@Month", month);
                     updateCmd.Parameters.AddWithValue("@Year", year);
                     updateCmd.ExecuteNonQuery();
-                    AddNotification(userId,"Monthly budget updated to ₹" + amount +" for " + ddlMonth.SelectedItem.Text + " " + ddlYear.SelectedValue);
+                    AddNotification(userId,"Monthly budget updated to Rs." + amount +" for " + ddlMonth.SelectedItem.Text + " " + ddlYear.SelectedValue);
                 }
                 else
                 {
                     //Insert
-                    string insertQuery = @"INSERT INTO Budgets(UserId, Month, Year, Amount, CreatedAt)
-                                           VALUES(@UserId, @Month, @Year, @Amount, GETDATE())";
+                    string insertQuery = @"INSERT INTO Budgets(UserId, Month, Year, Amount, CreatedAt) VALUES(@UserId, @Month, @Year, @Amount, GETDATE())";
 
                     SqlCommand insertCmd = new SqlCommand(insertQuery, con);
                     insertCmd.Parameters.AddWithValue("@UserId", userId);
@@ -88,7 +87,7 @@ namespace SmartExpenseTracker.Pages
                     insertCmd.Parameters.AddWithValue("@Year", year);
                     insertCmd.Parameters.AddWithValue("@Amount", amount);
                     insertCmd.ExecuteNonQuery();
-                    AddNotification(userId, "Monthly budget set: ₹" + amount + " for " + ddlMonth.SelectedItem.Text + " " + ddlYear.SelectedValue);
+                    AddNotification(userId, "Monthly budget set: Rs." + amount + " for " + ddlMonth.SelectedItem.Text + " " + ddlYear.SelectedValue);
                 }
             }
             LoadMonthlyBudget();
@@ -104,8 +103,7 @@ namespace SmartExpenseTracker.Pages
 
             using (SqlConnection con = new SqlConnection(conStr))
             {
-                string query = @"SELECT Amount FROM Budgets 
-                                 WHERE UserId=@UserId AND Month=@Month AND Year=@Year";
+                string query = @"SELECT Amount FROM Budgets WHERE UserId=@UserId AND Month=@Month AND Year=@Year";
 
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@UserId", userId);
@@ -140,9 +138,7 @@ namespace SmartExpenseTracker.Pages
             {
                 con.Open();
                 // Budget
-                SqlCommand budgetCmd = new SqlCommand(
-                    @"SELECT ISNULL(SUM(Amount),0) FROM Budgets 
-                      WHERE UserId=@UserId AND Month=@Month AND Year=@Year", con);
+                SqlCommand budgetCmd = new SqlCommand(@"SELECT ISNULL(SUM(Amount),0) FROM Budgets WHERE UserId=@UserId AND Month=@Month AND Year=@Year", con);
 
                 budgetCmd.Parameters.AddWithValue("@UserId", userId);
                 budgetCmd.Parameters.AddWithValue("@Month", month);
@@ -151,10 +147,7 @@ namespace SmartExpenseTracker.Pages
                 totalBudget = Convert.ToDecimal(budgetCmd.ExecuteScalar());
 
                 // Expense
-                SqlCommand expenseCmd = new SqlCommand(
-                    @"SELECT ISNULL(SUM(Amount),0) FROM Expense 
-                      WHERE UserId=@UserId AND MONTH(ExpenseDate)=@Month 
-                      AND YEAR(ExpenseDate)=@Year", con);
+                SqlCommand expenseCmd = new SqlCommand(@"SELECT ISNULL(SUM(Amount),0) FROM Expense WHERE UserId=@UserId AND MONTH(ExpenseDate)=@Month AND YEAR(ExpenseDate)=@Year", con);
 
                 expenseCmd.Parameters.AddWithValue("@UserId", userId);
                 expenseCmd.Parameters.AddWithValue("@Month", month);
@@ -214,10 +207,7 @@ namespace SmartExpenseTracker.Pages
         {
             using (SqlConnection con = new SqlConnection(conStr))
             {
-                SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Notifications (UserId, Message, CreatedAt, IsRead) " +
-                    "VALUES (@UserId, @Message, GETDATE(), 0)", con);
-
+                SqlCommand cmd = new SqlCommand("INSERT INTO Notifications (UserId, Message, CreatedAt, IsRead) VALUES (@UserId, @Message, GETDATE(), 0)",con);
                 cmd.Parameters.AddWithValue("@UserId", userId);
                 cmd.Parameters.AddWithValue("@Message", message);
 

@@ -24,32 +24,28 @@ namespace SmartExpenseTracker.Pages
         {
             int userId = Convert.ToInt32(Session["UserID"]);
 
-            decimal totalIncome = GetSingleDecimal("SELECT ISNULL(SUM(Amount),0) FROM Income WHERE UserId=@uid", userId);
-            decimal totalExpense = GetSingleDecimal("SELECT ISNULL(SUM(Amount),0) FROM Expense WHERE UserId=@uid", userId);
+            decimal totalIncome = GetSingleDecimal(@"SELECT ISNULL(SUM(Amount),0) FROM Income WHERE UserId=@uid AND MONTH(IncomeDate) = MONTH(GETDATE()) AND YEAR(IncomeDate) = YEAR(GETDATE())", userId);
+            decimal totalExpense = GetSingleDecimal(@"SELECT ISNULL(SUM(Amount),0) FROM Expense WHERE UserId=@uid AND MONTH(ExpenseDate) = MONTH(GETDATE()) AND YEAR(ExpenseDate) = YEAR(GETDATE())", userId);
             decimal budget = GetSingleDecimal("SELECT ISNULL(Amount,0) FROM Budgets WHERE UserId=@uid AND Month=MONTH(GETDATE()) AND Year=YEAR(GETDATE())", userId);
 
-            // 1️⃣ Monthly Trend
-            lblMonthlyTrend.Text = "📊 This month, you have spent ₹" + totalExpense +
-                " which is " + (totalExpense > (budget * 0.7m) ? "high" : "under control") + ".";
+            // Monthly Trend
+            lblMonthlyTrend.Text = " This month, you have spent ₹" + totalExpense + " which is " + (totalExpense > (budget * 0.7m) ? "high" : "under control") + ".";
 
-            // 2️⃣ Budget Warning
+            // Budget Warning
             if (budget > 0 && totalExpense >= budget * 0.9m)
-                lblBudgetWarning.Text = "⚠ Warning: You have used more than 90% of your monthly budget.";
+                lblBudgetWarning.Text = " Warning: You have used more than 90% of your monthly budget.";
             else
-                lblBudgetWarning.Text = "✅ Your spending is within the safe budget limit.";
+                lblBudgetWarning.Text = "Your spending is within the safe budget limit.";
 
-            // 3️⃣ Savings Tip
+            //  Savings Tip
             decimal savings = totalIncome - totalExpense;
-            lblSavingsTip.Text = "💰 You have saved ₹" + savings +
-                ". Try to invest at least 20% of your savings for future growth.";
+            lblSavingsTip.Text = " You have saved ₹" + savings +". Try to invest at least 20% of your savings for future growth.";
 
-            // 4️⃣ Highest Spending Category
-            lblTopCategory.Text = "🔥 Highest spending category: " + GetTopCategory(userId);
+            // Highest Spending Category
+            lblTopCategory.Text = " Highest spending category: " + GetTopCategory(userId);
 
-            // 5️⃣ Expense Control Suggestion
-            lblExpenseControl.Text = totalExpense > totalIncome * 0.7m ?
-                "🚨 Your expenses are high compared to income. Reduce unnecessary spending." :
-                "🎯 Good job! You are maintaining healthy expense control.";
+            // Expense Control Suggestion
+            lblExpenseControl.Text = totalExpense > totalIncome * 0.7m ?" Your expenses are high compared to income. Reduce unnecessary spending." :" Good job! You are maintaining healthy expense control.";
         }
 
         decimal GetSingleDecimal(string query, int uid)

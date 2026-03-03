@@ -14,6 +14,10 @@ namespace SmartExpenseTracker.Pages
         string conStr = System.Configuration.ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserId"] == null)
+            {
+                Response.Redirect("~/Page/Login.aspx");
+            }
             if (!IsPostBack)
             {
                 calIncomeDate.SelectedDate = DateTime.Today;
@@ -22,9 +26,6 @@ namespace SmartExpenseTracker.Pages
             }
 
         }
-
-
-       
 
         protected void ddlSource_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -40,7 +41,7 @@ namespace SmartExpenseTracker.Pages
             }
             using (SqlConnection con = new SqlConnection(conStr))
             {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Income(UserId,IncomeSource,Amount,IncomeDate,Description,CreatedAt)" + "VALUES (@UserId,@Source,@Amount,@Date,@Description,GETDATE())", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Income(UserId, IncomeSource, Amount, IncomeDate, Description, CreatedAt) VALUES (@UserId, @Source, @Amount, @Date, @Description, GETDATE())",con);
 
                 cmd.Parameters.AddWithValue("@UserId",Convert.ToInt32(Session["UserId"]));
                 cmd.Parameters.AddWithValue("@Source", source);
@@ -50,18 +51,20 @@ namespace SmartExpenseTracker.Pages
 
                 con.Open();
                 cmd.ExecuteNonQuery();
-               
-                AddNotification( Convert.ToInt32(Session["UserId"]),"Income added: ₹" + txtAmount.Text + " from " + source );
             }
             ClearForm();
             LoadIncome();
             LoadMonthlyIncome();
         }
+      
         void LoadIncome()
         {
-            using(SqlConnection con=new SqlConnection(conStr))
+            using (SqlConnection con = new SqlConnection(conStr))
             {
-                SqlDataAdapter da = new SqlDataAdapter("SELECT IncomeSource,Amount,IncomeDate FROM Income ORDER BY CreatedAt DESC", con);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT IncomeSource, Amount, IncomeDate FROM Income WHERE UserId=@UserId ORDER BY CreatedAt DESC",
+                con);
+
+                da.SelectCommand.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
 
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -75,10 +78,9 @@ namespace SmartExpenseTracker.Pages
         {
             using (SqlConnection con = new SqlConnection(conStr))
             {
-                SqlCommand cmd = new SqlCommand(
-                    "SELECT ISNULL(SUM(Amount),0) FROM Income " +
-                    "WHERE MONTH(IncomeDate) = MONTH(GETDATE()) " +
-                    "AND YEAR(IncomeDate) = YEAR(GETDATE())", con);
+                SqlCommand cmd = new SqlCommand(@"SELECT ISNULL(SUM(Amount),0) FROM Income WHERE UserId=@UserId AND MONTH(IncomeDate)=MONTH(GETDATE()) AND YEAR(IncomeDate)=YEAR(GETDATE())", con);
+
+                cmd.Parameters.AddWithValue("@UserId", Convert.ToInt32(Session["UserId"]));
 
                 con.Open();
                 lblMonthlyIncome.Text = "₹ " + cmd.ExecuteScalar().ToString();
@@ -95,22 +97,6 @@ namespace SmartExpenseTracker.Pages
                 e.Cell.BackColor = System.Drawing.Color.Transparent;
             }
 
-        }
-
-        void AddNotification(int userId, string message)
-        {
-            using (SqlConnection con = new SqlConnection(conStr))
-            {
-                SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Notifications (UserId, Message, CreatedAt, IsRead) " +
-                    "VALUES (@UserId, @Message, GETDATE(), 0)", con);
-
-                cmd.Parameters.AddWithValue("@UserId", userId);
-                cmd.Parameters.AddWithValue("@Message", message);
-
-                con.Open();
-                cmd.ExecuteNonQuery();
-            }
         }
 
         void ClearForm()

@@ -40,7 +40,9 @@
             <asp:DropDownList ID="ddlYear" runat="server" CssClass="form-control"></asp:DropDownList>
 
             <asp:Label ID="Amount" runat="server" Text="Budget Amount(₹)" CssClass="lblBudget"></asp:Label>
-            <asp:TextBox ID="txtBudgetAmount" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:TextBox ID="txtBudgetAmount" runat="server" CssClass="form-control" ></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfvAmount" runat="server" ControlToValidate="txtBudgetAmount" ErrorMessage="Budget amount is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="revAmount" runat="server" ControlToValidate="txtBudgetAmount" ValidationExpression="^\d+(\.\d{1,2})?$" ErrorMessage="Enter valid numeric amount only" ForeColor="Red" Display="Dynamic"></asp:RegularExpressionValidator>
 
             <asp:Button ID="btnSaveBudget" runat="server" Text="Save Budget"
                 CssClass="btn-save" OnClick="btnSaveBudget_Click1" />

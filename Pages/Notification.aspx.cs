@@ -27,9 +27,7 @@ namespace SmartExpenseTracker.Pages
 
             using (SqlConnection con = new SqlConnection(cs))
             {
-                SqlDataAdapter da = new SqlDataAdapter(
-                    "SELECT NotificationId, Message, CreatedAt, IsRead " +
-                    "FROM Notifications WHERE UserId=@UserId ORDER BY CreatedAt DESC", con);
+                SqlDataAdapter da = new SqlDataAdapter("SELECT NotificationId, Message, CreatedAt, IsRead " + "FROM Notifications WHERE UserId=@UserId ORDER BY CreatedAt DESC", con);
 
                 da.SelectCommand.Parameters.AddWithValue("@UserId", userId);
 
@@ -51,8 +49,7 @@ namespace SmartExpenseTracker.Pages
             {
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    SqlCommand cmd = new SqlCommand(
-                        "UPDATE Notifications SET IsRead = 1 WHERE NotificationId = @Id AND UserId=@UserId", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE Notifications SET IsRead = 1 WHERE NotificationId = @Id AND UserId=@UserId", con);
 
                     cmd.Parameters.AddWithValue("@Id", notifId);
                     cmd.Parameters.AddWithValue("@UserId", userId);
@@ -65,8 +62,7 @@ namespace SmartExpenseTracker.Pages
             {
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    SqlCommand cmd = new SqlCommand(
-                        "DELETE FROM Notifications WHERE NotificationId = @Id AND UserId=@UserId", con);
+                    SqlCommand cmd = new SqlCommand("DELETE FROM Notifications WHERE NotificationId = @Id AND UserId=@UserId", con);
 
                     cmd.Parameters.AddWithValue("@Id", notifId);
                     cmd.Parameters.AddWithValue("@UserId", userId);
